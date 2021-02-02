@@ -5,6 +5,6 @@ Eng: This is my apps  which I have created for Android when i was learning it. (
 
 ## 1. :desert_island: [GeoQuizApp](/GeoQuizApp/)
 
-_Стек: Android SDK/XML/_
+_Стек: Android SDK/XML_
 
 Приложение с вопросами по географии, подсчетом кол-ва правильных ответов и возможностью подсмотреть правильный ответ ограниченное количество раз.
