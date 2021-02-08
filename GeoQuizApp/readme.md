@@ -6,4 +6,4 @@ _Стек: Android SDK/XML_
 
 # GIF
 
-![](geoquizapp.gif)
+![](GeoQuizApp.gif)
