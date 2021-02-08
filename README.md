@@ -8,3 +8,5 @@ Eng: This is my apps  which I have created for Android when i was learning it. (
 _Стек: Android SDK/XML_
 
 Приложение с вопросами по географии, подсчетом кол-ва правильных ответов и возможностью подсмотреть правильный ответ ограниченное количество раз.
+
+## 2. :japanese_castle: [CriminalIntent]()
