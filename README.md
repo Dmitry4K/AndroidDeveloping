@@ -11,6 +11,6 @@ _Стек: Android SDK/XML_
 
 ## 2. :japanese_castle: [CriminalIntent]()
 
-_Стек: Android SDK/XML/SQLite
+_Стек: Android SDK/XML/SQLite_
 
 Soon...
