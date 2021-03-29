@@ -9,7 +9,7 @@ _Стек: Android SDK/XML_
 
 Приложение с вопросами по географии, подсчетом кол-ва правильных ответов и возможностью подсмотреть правильный ответ ограниченное количество раз.
 
-## 2. :japanese_castle: [CriminalIntent]()
+## 2. :japanese_castle: [CriminalIntent](/CriminalIntent/)
 
 _Стек: Android SDK/XML/SQLite_
 
