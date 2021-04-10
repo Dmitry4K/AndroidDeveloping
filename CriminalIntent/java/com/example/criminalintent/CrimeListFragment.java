@@ -1,5 +1,6 @@
 package com.example.criminalintent;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Layout;
@@ -33,6 +34,22 @@ public class CrimeListFragment extends Fragment {
     private CrimeAdapter mCrimeAdapter;
     private TextView mTextView;
     private boolean mSubtitleVisible;
+    private Callbacks mCallbacks;
+    public interface Callbacks{
+        void onCrimeSelected(Crime crime);
+    }
+
+    @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
+        mCallbacks = (Callbacks) context;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mCallbacks = null;
+    }
 
     private static final String SAVED_SUBTITLE_VISIBLE = "subtitle";
 
@@ -44,12 +61,10 @@ public class CrimeListFragment extends Fragment {
         protected Crime mCrime;
         public CrimeHolder(LayoutInflater inflater, ViewGroup parent, int layoutId){
             super(inflater.inflate(layoutId, parent, false));
-            //mPoliceCall = (Button)itemView.findViewById(R.id.police_call_button);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = CrimePagerActivity.newIntent(getActivity(), mCrime.getId());
-                    startActivity(intent);
+                    mCallbacks.onCrimeSelected(mCrime);
                 }
             });
         }
@@ -136,7 +151,7 @@ public class CrimeListFragment extends Fragment {
             mCrimes = crimes;
         }
     }
-    private void updateUI(){
+    public void updateUI(){
         CrimeLab crimeLab = CrimeLab.get(getActivity());
         List<Crime> crimes = crimeLab.getCrimes();
         if(mCrimeAdapter == null){
@@ -199,8 +214,8 @@ public class CrimeListFragment extends Fragment {
             case R.id.new_crime:
                 Crime crime = new Crime();
                 CrimeLab.get((getActivity())).addCrime(crime);
-                Intent intent = CrimePagerActivity.newIntent(getActivity(), crime.getId());
-                startActivity(intent);
+                updateUI();
+                mCallbacks.onCrimeSelected(crime);
                 return true;
             case R.id.show_subtitle:
                 mSubtitleVisible = !mSubtitleVisible;
